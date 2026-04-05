@@ -1,0 +1,34 @@
+{
+  "name": "C Linux Study (Ubuntu 24.04)",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "root",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.makefile-tools",
+        "teabyii.ayu",
+        "eamodio.gitlens",
+        "vscode-icons-team.vscode-icons",
+        "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+        "vikas.code-navigation",
+        "streetsidesoftware.code-spell-checker",
+        "MS-CEINTL.vscode-language-pack-pt-BR",
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.eol": "\n",
+        "editor.formatOnSave": true,
+        "C_Cpp.default.compilerPath": "/usr/bin/gcc"
+      }
+    }
+  },
+  "postCreateCommand": "gcc --version && gdb --version && valgrind --version",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ]
+}
